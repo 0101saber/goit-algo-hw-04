@@ -3,5 +3,7 @@ def total_salary(path) -> tuple:
         with open(path, "r") as fh:
             salary = [int(el.split(',')[1]) for el in fh.readlines()]
             return sum(salary), sum(salary) / len(salary)
+    except ZeroDivisionError:
+        print("division by zero")
     except FileNotFoundError:
         print(f"No such file or directory: '{path}'")
